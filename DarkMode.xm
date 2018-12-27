@@ -1,9 +1,12 @@
 #define kDarkColor [UIColor colorWithRed:0.09 green:0.09 blue:0.09 alpha:1.0];
+#define kLightGrayColor [UIColor colorWithRed:0.70 green:0.70 blue:0.70 alpha:1.0];
 #define kGrayColor [UIColor colorWithRed:0.30 green:0.30 blue:0.30 alpha:1.0];
+#define kDarkishGrayColor [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1.0];
 #define kDarkTranslucentColor [UIColor colorWithRed:0.09 green:0.09 blue:0.09 alpha:0.85];
-#define kLighterDarColor [UIColor colorWithRed:0.11 green:0.11 blue:0.11 alpha:1.0];
+#define kLighterDarkColor [UIColor colorWithRed:0.11 green:0.11 blue:0.11 alpha:1.0];
 
 @interface FeaturedPackageView : UIView
+-(void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 @end
 
 @interface SourcesTableViewCell : UIView
@@ -177,18 +180,6 @@
     self.backgroundColor = kDarkColor;
 }
 %end
-%hook _UINavigationBarContentView
--(void)layoutSubviews {
-    %orig;
-    self.backgroundColor = kDarkColor;
-}
-%end
-%hook _UINavigationBarLargeTitleView
--(void)layoutSubviews {
-    %orig;
-    self.backgroundColor = kDarkColor;
-}
-%end
 %hook CSTextRenderView
 -(void)layoutSubviews{
     %orig;
@@ -266,10 +257,16 @@
         subview.textColor = [UIColor whiteColor];
     }
 }
-%end
-%hook UITextField
--(void)didMoveToWindow{
+%end 
+@interface _UIBarBackground : UIView
+@end
+%hook _UIBarBackground
+-(void)layoutSubviews{
     %orig;
-    self.textColor = [UIColor whiteColor];
+    if([self.superview isKindOfClass:NSClassFromString(@"TabBar")]){
+        for(UIImageView *imageView in self.subviews){
+            imageView.backgroundColor = kDarkishGrayColor;
+        }
+    }
 }
 %end

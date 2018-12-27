@@ -1,9 +1,9 @@
-Package: beta.simalary.Ocean
-Name: Ocean (Early Alpha)
-Depends: mobilesubstrate
-Version: 0.0.1-a1
+Package: us.oceantweak.Ocean
+Name: Ocean
+Depends: mobilesubstrate, com.coolstar.SileoStore
+Version: 0.0.2beta1
 Architecture: iphoneos-arm
-Description: An awesome MobileSubstrate tweak!
-Maintainer: Simalary (Chris)
-Author: Simalary (Chris)
+Description: Supercharge Sileo with Ocean. Adds extra functionality to sileo. For Electra Devices iOS 11.0-11.3.1
+Maintainer: webmaster@localhost.com
+Author: TeamOcean
 Section: Tweaks

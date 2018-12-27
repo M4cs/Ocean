@@ -1,8 +1,16 @@
 #define kColor [UIColor colorWithRed:1.00 green:0.25 blue:0.00 alpha:1.0];
+#define kDarkColor [UIColor colorWithRed:0.09 green:0.09 blue:0.09 alpha:1.0];
+#define kLightGrayColor [UIColor colorWithRed:0.70 green:0.70 blue:0.70 alpha:1.0];
+#define kGrayColor [UIColor colorWithRed:0.30 green:0.30 blue:0.30 alpha:1.0];
+#define kDarkishGrayColor [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1.0];
+#define kDarkTranslucentColor [UIColor colorWithRed:0.09 green:0.09 blue:0.09 alpha:0.85];
+#define kLighterDarkColor [UIColor colorWithRed:0.11 green:0.11 blue:0.11 alpha:1.0];
 
 #import "Headers/ANEMWebImageButton.h"
 
 @interface __FakeMarqueeLabel : UILabel
+@property(nonatomic, retain) UIColor *textColor;
+@property(nonatomic, copy) NSString *text;
 @end
 
 @interface SourceProgressIndicatorView : UIView
@@ -79,11 +87,14 @@
 }
 %end
 %hook __FakeMarqueeLabel
--(void)layoutSubviews{
-    %orig;
-    self.textColor = [UIColor colorWithRed:0.10 green:0.10 blue:0.20 alpha:1.0];
+-(void)_setTextColor:(id)arg1{
+    if ([self.text containsString:@"Package"]) {
+        arg1 = kLightGrayColor;
+        %orig(arg1);
+    } else {
+        %orig(arg1);
+    }
 }
-%end
 %hook UIButton
 -(void)setTitleColor:(id)arg1 forState:(unsigned long long)arg2 {
 	arg1 = kColor;
