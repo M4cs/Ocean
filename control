@@ -1,7 +1,7 @@
 Package: tk.oceantweak.Ocean
 Name: Ocean
 Depends: mobilesubstrate
-Version: 0.0.2beta1
+Version: 0.0.2beta2
 Architecture: iphoneos-arm
 Description: Supercharge Sileo with Ocean
 Maintainer: webmaster@localhost.com

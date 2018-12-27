@@ -1,10 +1,4 @@
 #define kColor [UIColor colorWithRed:1.00 green:0.25 blue:0.00 alpha:1.0];
-#define kDarkColor [UIColor colorWithRed:0.09 green:0.09 blue:0.09 alpha:1.0];
-#define kLightGrayColor [UIColor colorWithRed:0.70 green:0.70 blue:0.70 alpha:1.0];
-#define kGrayColor [UIColor colorWithRed:0.30 green:0.30 blue:0.30 alpha:1.0];
-#define kDarkishGrayColor [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1.0];
-#define kDarkTranslucentColor [UIColor colorWithRed:0.09 green:0.09 blue:0.09 alpha:0.85];
-#define kLighterDarkColor [UIColor colorWithRed:0.11 green:0.11 blue:0.11 alpha:1.0];
 
 #import "Headers/ANEMWebImageButton.h"
 
@@ -17,15 +11,14 @@
 @end
 
 %hook UIImageView
--(void)_setDefaultRenderingMode:(long long)arg1{
-	if([self.superview isKindOfClass:NSClassFromString(@"ANEMWebImageButton")]){
-		arg1 = 2;
-		%orig(arg1);
+-(long long)_defaultRenderingMode{
+	if([self.superview isKindOfClass:NSClassFromString(@"ANEMWebImageButton")] || [self.superview isKindOfClass:NSClassFromString(@"PackageListHeader")]){
+		return 2;
 	}
-	%orig(arg1);
+	return %orig;
 }
 -(void)setTintColor:(UIColor *)arg1{
-	if([self.superview isKindOfClass:NSClassFromString(@"ANEMWebImageButton")]){
+	if([self.superview isKindOfClass:NSClassFromString(@"ANEMWebImageButton")] || [self.superview isKindOfClass:NSClassFromString(@"PackageListHeader")]){
 		arg1 = [UIColor blueColor];
 		%orig(arg1);
 	}
@@ -50,12 +43,22 @@
     %orig(arg1);
 }
 %end
-%hook UISegmentedControl
--(void)setTintColor:(UIColor *)arg1{
-	arg1 = kColor;
-	%orig(arg1);
-}
-%end
+// %hook UISegmentedControl
+// -(void)setTintColor:(UIColor *)arg1 {
+//     for (UIView *subview in self.subviews) {
+//         subview.tintColor = kColor;
+//         for (UIView *subsubview in subview.subviews) {
+//             subsubview.tintColor = kColor;
+//         }
+//     }
+// }
+// %end
+// %hook UISegment
+// -(void)setTintColor:(id)arg1{
+// 	arg1 = kColor;
+// 	%orig(arg1);
+// }
+// %end
 %hook SourceProgressIndicatorView
 -(void)setTintColor:(UIColor *)arg1 {
     arg1 = kColor;
@@ -86,17 +89,6 @@
 	%orig(arg1);
 }
 %end
-%hook __FakeMarqueeLabel
--(void)_setTextColor:(id)arg1{
-    if ([self.text containsString:@"Package"]) {
-        arg1 = kLightGrayColor;
-        %orig(arg1);
-    } else {
-        %orig(arg1);
-    }
-}
-%end
-
 %hook UIButton
 -(void)setTitleColor:(id)arg1 forState:(unsigned long long)arg2 {
 	arg1 = kColor;
