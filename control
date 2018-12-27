@@ -1,9 +1,9 @@
-Package: us.oceantweak.Ocean
+Package: us.teamocean.Ocean
 Name: Ocean
 Depends: mobilesubstrate, com.coolstar.SileoStore
 Version: 0.0.2beta1
 Architecture: iphoneos-arm
-Description: Supercharge Sileo with Ocean. Adds extra functionality to sileo. For Electra Devices iOS 11.0-11.3.1
+Description: Supercharge Sileo.
 Maintainer: webmaster@localhost.com
-Author: TeamOcean
+Author: Team Ocean
 Section: Tweaks
