@@ -1,4 +1,4 @@
-Package: us.oceantweak.Ocean
+Package: tk.oceantweak.Ocean
 Name: Ocean
 Depends: mobilesubstrate, com.coolstar.SileoStore
 Version: 0.0.2beta1
