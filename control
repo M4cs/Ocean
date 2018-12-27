@@ -1,0 +1,9 @@
+Package: beta.simalary.Ocean
+Name: Ocean (Early Alpha)
+Depends: mobilesubstrate
+Version: 0.0.1-a1
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak!
+Maintainer: Simalary (Chris)
+Author: Simalary (Chris)
+Section: Tweaks
