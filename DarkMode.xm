@@ -60,6 +60,8 @@
 @interface _UIButtonBarStackView : UIView
 @end
 
+@interface __FakeMarqueeLabel : UILabel
+@end
 
 %hook UICollectionView
 -(void)layoutSubviews {
@@ -106,15 +108,19 @@
     %orig;
     if ([self valueForKey:@"authorLabel"]){
         UILabel *authorLabel = (UILabel *)([self valueForKey:@"authorLabel"]);
-        authorLabel.textColor = [UIColor whiteColor];
+        authorLabel.textColor = kLightGrayColor;
     }
     if ([self valueForKey:@"descriptionLabel"]){
         UILabel *descriptionLabel = (UILabel *)([self valueForKey:@"descriptionLabel"]);
-        descriptionLabel.textColor = [UIColor whiteColor];
+        descriptionLabel.textColor = kLightGrayColor;
     }
     if ([self valueForKey:@"titleLabel"]){
         UILabel *titleLabel = (UILabel *)([self valueForKey:@"titleLabel"]);
         titleLabel.textColor = [UIColor whiteColor];
+    }
+    if ([self valueForKey:@"_separatorView"]) {
+        UIView *separatorView = (UIView *)([self valueForKey:@"_separatorView"]);
+        separatorView.backgroundColor = kGrayColor;
     }
 }
 %end
@@ -189,9 +195,9 @@
 %hook UIViewController
 -(void)viewDidLoad{
     %orig;
-    if (@available(iOS 11.0, *)){
+    //if (@available(iOS 11.0, *)){
         self.navigationController.navigationBar.largeTitleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-    }
+    //}
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.navigationController.navigationBar.translucent = YES;
@@ -201,14 +207,14 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     #pragma GCC diagnostic pop
 
-    UILabel* demoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 50)];
-    demoLabel.backgroundColor = kDarkColor;
-    demoLabel.textAlignment = NSTextAlignmentCenter;
-    demoLabel.textColor = [UIColor redColor];
-    demoLabel.text = @"";
-    demoLabel.center = CGPointMake(self.navigationController.navigationBar.frame.size.width / 2, self.navigationController.navigationBar.frame.size.height / 2);
-    [demoLabel sizeToFit];
-    [self.navigationController.navigationBar addSubview:demoLabel];
+    // UILabel* demoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 50)];
+    // demoLabel.backgroundColor = kDarkColor;
+    // demoLabel.textAlignment = NSTextAlignmentCenter;
+    // demoLabel.textColor = [UIColor redColor];
+    // demoLabel.text = @"Ocean (Beta)";
+    // demoLabel.center = CGPointMake(self.navigationController.navigationBar.frame.size.width / 2, self.navigationController.navigationBar.frame.size.height / 2);
+    // [demoLabel sizeToFit];
+    // [self.navigationController.navigationBar addSubview:demoLabel];
 }
 - (long long)preferredStatusBarStyle {
 	return 1;
@@ -273,6 +279,16 @@
         for(UIImageView *imageView in self.subviews){
             imageView.backgroundColor = kDarkishGrayColor;
         }
+    }
+}
+%end
+%hook __FakeMarqueeLabel
+-(void)_setTextColor:(id)arg1{
+    if ([self.text containsString:@"Package"]) {
+        arg1 = kLightGrayColor;
+        %orig(arg1);
+    } else {
+        %orig(arg1);
     }
 }
 %end
