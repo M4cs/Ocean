@@ -12,14 +12,14 @@
 
 %hook UIImageView
 -(long long)_defaultRenderingMode{
-	if([self.superview isKindOfClass:NSClassFromString(@"ANEMWebImageButton")] || [self.superview isKindOfClass:NSClassFromString(@"PackageListHeader")]){
+	if([self.superview isKindOfClass:NSClassFromString(@"ANEMWebImageButton")]){
 		return 2;
 	}
 	return %orig;
 }
 -(void)setTintColor:(UIColor *)arg1{
-	if([self.superview isKindOfClass:NSClassFromString(@"ANEMWebImageButton")] || [self.superview isKindOfClass:NSClassFromString(@"PackageListHeader")]){
-		arg1 = [UIColor blueColor];
+	if([self.superview isKindOfClass:NSClassFromString(@"ANEMWebImageButton")]){
+		arg1 = kColor;
 		%orig(arg1);
 	}
 	%orig(arg1);
@@ -58,7 +58,7 @@
 // 	arg1 = kColor;
 // 	%orig(arg1);
 // }
-// %end
+//%end
 %hook SourceProgressIndicatorView
 -(void)setTintColor:(UIColor *)arg1 {
     arg1 = kColor;
