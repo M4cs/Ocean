@@ -95,7 +95,8 @@
         %orig(arg1);
     }
 }
-%end 
+%end
+
 %hook UIButton
 -(void)setTitleColor:(id)arg1 forState:(unsigned long long)arg2 {
 	arg1 = kColor;
