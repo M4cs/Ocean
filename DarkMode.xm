@@ -189,11 +189,17 @@
 %hook UIViewController
 -(void)viewDidLoad{
     %orig;
-    self.navigationController.navigationBar.largeTitleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    if (@available(iOS 11.0, *)){
+        self.navigationController.navigationBar.largeTitleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    }
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.navigationController.navigationBar.translucent = YES;
+    #pragma GCC diagnostic push 
+    #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+    //Screw off deprecation
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    #pragma GCC diagnostic pop
 
     UILabel* demoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 50)];
     demoLabel.backgroundColor = kDarkColor;
