@@ -54,7 +54,9 @@
 @interface NewsViewController : UIViewController
 @end
 
-@interface CSTextRenderView : UIView
+@interface CSTextRenderView : UIView {
+        NSAttributedString *_attributedText;
+}
 @end
 
 @interface _UIButtonBarStackView : UIView
@@ -145,10 +147,13 @@
         separatorView.backgroundColor = kGrayColor;
     }
 }
+-(void)touchesBegan:(id)arg1 withEvent:(id)arg2{
+    self.backgroundColor = kGrayColor;
+}
 %end
 %hook FeaturedButton
 -(void)setBackgroundColor:(UIColor *)arg1{
-    arg1 = kDarkTranslucentColor;
+    arg1 = kLighterDarkColor;
     %orig(arg1);
 }
 %end
@@ -172,6 +177,8 @@
 -(void)viewDidLoad{
     %orig;
     self.view.backgroundColor = kDarkColor;
+    //DRM
+    
 }
 %end
 %hook PackageViewController
@@ -186,10 +193,20 @@
     self.backgroundColor = kDarkColor;
 }
 %end
+
 %hook CSTextRenderView
 -(void)layoutSubviews{
     %orig;
     self.tintColor = [UIColor whiteColor];
+    // NSAttributedString *attributedText = MSHookIvar<NSAttributedString *>(self, "_attributedText");
+    // NSMutableAttributedString *mutableAttributedText= attributedText.mutableCopy;
+    // [mutableAttributedText.mutableString setString:[attributedText.string stringByReplacingOccurrencesOfString:@"kCGColorSpaceModelRGB 0 0 0 1" withString:@"kCGColorSpaceModelRGB 1 1 1 1"]];
+    // MSHookIvar<NSAttributedString *>(self, "_attributedText") = mutableAttributedText;
+
+    NSAttributedString *attributedText = MSHookIvar<NSAttributedString *>(self, "_attributedText");
+    NSMutableAttributedString *mutableAttributedText = [attributedText mutableCopy];
+    [mutableAttributedText addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, [mutableAttributedText length])];
+    MSHookIvar<NSAttributedString *>(self, "_attributedText") = mutableAttributedText;
 }
 %end
 %hook UIViewController
@@ -215,6 +232,7 @@
     // demoLabel.center = CGPointMake(self.navigationController.navigationBar.frame.size.width / 2, self.navigationController.navigationBar.frame.size.height / 2);
     // [demoLabel sizeToFit];
     // [self.navigationController.navigationBar addSubview:demoLabel];
+
 }
 - (long long)preferredStatusBarStyle {
 	return 1;
