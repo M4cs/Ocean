@@ -12,7 +12,7 @@
 				<key>key</key>
 				<string>Enabled</string>
 				<key>isGroupToggle</key>
-				<true/>
+				<false/>
 				<key>PostNotification</key>
 				<string>com.midnightchips.oceanprefs.prefschanged</string>
 				<key>defaults</key>
@@ -31,7 +31,7 @@
 				<key>key</key>
 				<string>backgroundColor</string>
 				<key>label</key>
-				<string>backgroundColor</string>
+				<string>Background Color</string>
 				<key>fallback</key>
 				<string>FFFFFF</string>
 				<key>alpha</key>
@@ -50,7 +50,7 @@
 				<key>defaults</key>
 				<string>com.midnightchips.oceanprefs</string>
 				<key>key</key>
-				<string>textColor</string>
+				<string>Text Color</string>
 				<key>label</key>
 				<string>textColor</string>
 				<key>fallback</key>
@@ -73,7 +73,7 @@
 				<key>key</key>
 				<string>infoText</string>
 				<key>label</key>
-				<string>infoText</string>
+				<string>Package Info Text</string>
 				<key>fallback</key>
 				<string>FFFFFF</string>
 				<key>alpha</key>
@@ -94,7 +94,7 @@
 				<key>key</key>
 				<string>seperatorColor</string>
 				<key>label</key>
-				<string>seperatorColor</string>
+				<string>Seperator Text Color</string>
 				<key>fallback</key>
 				<string>FFFFFF</string>
 				<key>alpha</key>
@@ -157,7 +157,7 @@
 				<key>key</key>
 				<string>visualEffectColor</string>
 				<key>label</key>
-				<string>visualEffectColor</string>
+				<string>Bar and Header Color</string>
 				<key>fallback</key>
 				<string>FFFFFF</string>
 				<key>alpha</key>
@@ -199,7 +199,7 @@
 				<key>key</key>
 				<string>tintColor</string>
 				<key>label</key>
-				<string>tintColor</string>
+				<string>Buttons Color</string>
 				<key>fallback</key>
 				<string>FFFFFF</string>
 				<key>alpha</key>
