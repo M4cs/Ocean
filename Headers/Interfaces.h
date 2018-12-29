@@ -37,7 +37,18 @@
 @end
 
 @interface SourcesViewController : UIViewController
+- (void)presentAddSourceSkippingPasteboard:(BOOL)arg1;
+- (void)reloadData;
+- (void)refreshSources:(id)arg1;
+- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
 @end
+
+@interface RepoManager : NSObject
++ (id)sharedInstance;
+- (void)addReposWithURLs:(NSArray *)arg1;
+- (void)writeListToFile;
+- (BOOL)hasRepoWithURL:(id)arg1;
+@end 
 
 @interface FeaturedAutoStackView : UIView
 @end
