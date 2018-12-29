@@ -1,19 +1,6 @@
-#define kColor [UIColor colorWithRed:1.00 green:0.25 blue:0.00 alpha:1.0];
 
-#import <UIKit/UIKit.h>
-#import <MessageUI/MFMailComposeViewController.h>
+#import <Headers/Interfaces.h>
 
-@interface PackageListViewController : UIViewController <MFMailComposeViewControllerDelegate> {
-	NSArray *_packages;
-}
-//-(void)sendEmail;
--(void)copyPackages;
-@end
-@interface Package{
-    NSString *_name;
-    NSString *_version;
-}
-@end
 %hook PackageListViewController
 - (void)viewDidLoad{
 	%orig;
@@ -36,7 +23,7 @@
 
 	[alert addAction:defaultAction];
 	[alert addAction:cancelAction];
-	alert.view.tintColor = kColor;
+	alert.view.tintColor = [prefs colorForKey:@"tintColor"];
 	[self presentViewController:alert animated:YES completion:nil];
 }
 %new
