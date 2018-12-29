@@ -1,3 +1,4 @@
+#import <Headers/Interfaces.h>
 %hook RepoManager // could hook NSURLConnection as well
 -(id)fetchFromURL:(id)arg1 success:(id)arg2 progress:(id)arg3 failure:(id)arg4{
     if ([[arg1 absoluteString] isEqualToString:@"http://apt.thebigboss.org/repofiles/cydia/Packages"]) {
