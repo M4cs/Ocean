@@ -8,7 +8,7 @@
 				<key>cell</key>
 				<string>PSSwitchCell</string>
 				<key>label</key>
-				<string>kOCPEnabled</string>
+				<string>Enabled</string>
 				<key>key</key>
 				<string>Enabled</string>
 				<key>isGroupToggle</key>
@@ -52,7 +52,7 @@
 				<key>key</key>
 				<string>Text Color</string>
 				<key>label</key>
-				<string>textColor</string>
+				<string>TextColor</string>
 				<key>fallback</key>
 				<string>FFFFFF</string>
 				<key>alpha</key>
@@ -115,7 +115,7 @@
 				<key>key</key>
 				<string>selectColor</string>
 				<key>label</key>
-				<string>selectColor</string>
+				<string>Select Color</string>
 				<key>fallback</key>
 				<string>FFFFFF</string>
 				<key>alpha</key>
@@ -136,7 +136,7 @@
 				<key>key</key>
 				<string>tableTintColor</string>
 				<key>label</key>
-				<string>tableTintColor</string>
+				<string>Table Tint Color</string>
 				<key>fallback</key>
 				<string>FFFFFF</string>
 				<key>alpha</key>
@@ -178,7 +178,7 @@
 				<key>key</key>
 				<string>barColor</string>
 				<key>label</key>
-				<string>barColor</string>
+				<string>Bar Color</string>
 				<key>fallback</key>
 				<string>FFFFFF</string>
 				<key>alpha</key>
