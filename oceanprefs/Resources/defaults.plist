@@ -17,10 +17,12 @@
 		<key>tableTintColor</key>
 		<string>ff6600</string>
 		<key>visualEffectColor</key>
-		<string>161616</string>
+		<string>181818</string>
 		<key>barColor</key>
-		<string>161616</string>
+		<string>181818</string>
 		<key>tintColor</key>
 		<string>ff6600</string>
+		<key>tintEnabled</key>
+		<true/>
 	</dict>
 </plist>
