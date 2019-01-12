@@ -1,6 +1,6 @@
 #include "OCPProvider.h"
-#import <UIKit/UIKit.h> 
-#import <MessageUI/MFMailComposeViewController.h> 
+#import <UIKit/UIKit.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
 @interface FeaturedPackageView : UIView
 -(void)touchesBegan:(id)arg1 withEvent:(id)arg2;
@@ -48,7 +48,7 @@
 - (void)addReposWithURLs:(NSArray *)arg1;
 - (void)writeListToFile;
 - (BOOL)hasRepoWithURL:(id)arg1;
-@end 
+@end
 
 @interface FeaturedAutoStackView : UIView
 @end
@@ -89,4 +89,17 @@
     NSString *_name;
     NSString *_version;
 }
+@end
+
+@interface UINavigationBar (iOS11)
+@property (nonatomic,copy) NSDictionary* largeTitleTextAttributes;
+@end
+
+@interface PackageCollectionViewCell : NSObject
+@end
+
+@interface PackageListHeader : NSObject
+@end
+
+@interface DepictionTableButtonView : NSObject
 @end
