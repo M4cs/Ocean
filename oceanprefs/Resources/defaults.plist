@@ -2,11 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 	<dict>
-		<key>kOCPEnabled</key>
+		<key>darkEnabled</key>
 		<true/>
-		<key>kOCPText</key>
-		<string>test</string>
-		<key>kOCPFont</key>
-		<real>.SFUIDisplay-Regular</real>
+		<key>backgroundColor</key>
+		<string>212121</string>
+		<key>textColor</key>
+		<string>f9f9f9</string>
+		<key>infoText</key>
+		<string>f9f9f9</string>
+		<key>seperatorColor</key>
+		<string>f9f9f9</string>
+		<key>selectColor</key>
+		<string>f9f9f9</string>
+		<key>tableTintColor</key>
+		<string>ff6600</string>
+		<key>visualEffectColor</key>
+		<string>161616</string>
+		<key>barColor</key>
+		<string>161616</string>
+		<key>tintColor</key>
+		<string>ff6600</string>
 	</dict>
 </plist>
