@@ -120,7 +120,7 @@
     %orig;
     self.view.backgroundColor = [prefs colorForKey:@"backgroundColor"];
     //DRM
-    
+
 }
 %end
 %hook PackageViewController
@@ -154,13 +154,11 @@
 %hook UIViewController
 -(void)viewDidLoad{
     %orig;
-    if (@available(iOS 11.0, *)){
-        self.navigationController.navigationBar.largeTitleTextAttributes = @{NSForegroundColorAttributeName: [prefs colorForKey:@"textColor"]};
-    }
+    self.navigationController.navigationBar.largeTitleTextAttributes = @{NSForegroundColorAttributeName: [prefs colorForKey:@"textColor"]};
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [prefs colorForKey:@"textColor"]};
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.navigationController.navigationBar.translucent = YES;
-    #pragma GCC diagnostic push 
+    #pragma GCC diagnostic push
     #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
     //Screw off deprecation
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
@@ -226,10 +224,12 @@
     %orig;
     self.view.backgroundColor = [prefs colorForKey:@"backgroundColor"];
     for(UILabel *subview in self.view.subviews){
-        subview.textColor = [prefs colorForKey:@"textColor"];
+        if ([subview isKindOfClass:[UILabel class]]) {
+            subview.textColor = [prefs colorForKey:@"textColor"];
+        }
     }
 }
-%end 
+%end
 @interface _UIBarBackground : UIView
 @end
 %hook _UIBarBackground
