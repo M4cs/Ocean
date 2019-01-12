@@ -1,4 +1,4 @@
-Package: tk.oceantweak.Ocean
+Package: tk.oceantweak.ocean
 Name: Ocean
 Depends: mobilesubstrate, preferenceloader, com.creaturecoding.libcspreferences, com.creaturesurvive.libcscolorpicker
 Version: 0.0.2beta2-2
