@@ -94,9 +94,9 @@
 				<key>defaults</key>
 				<string>com.midnightchips.oceanprefs</string>
 				<key>key</key>
-				<string>seperatorColor</string>
+				<string>separatorColor</string>
 				<key>label</key>
-				<string>Seperator Text Color</string>
+				<string>Separator Color</string>
 				<key>fallback</key>
 				<string>f9f9f9</string>
 				<key>alpha</key>
@@ -120,27 +120,6 @@
 				<string>Select Color</string>
 				<key>fallback</key>
 				<string>f9f9f9</string>
-				<key>alpha</key>
-				<true/>
-				<key>defaultsPath</key>
-				<string>/Library/PreferenceBundles/oceanprefs.bundle</string>
-			</dict>
-
-			<dict>
-				<key>PostNotification</key>
-				<string>com.midnightchips.oceanprefs.prefschanged</string>
-				<key>cell</key>
-				<string>PSLinkCell</string>
-				<key>cellClass</key>
-				<string>CSColorDisplayCell</string>
-				<key>defaults</key>
-				<string>com.midnightchips.oceanprefs</string>
-				<key>key</key>
-				<string>tableTintColor</string>
-				<key>label</key>
-				<string>Table Tint Color</string>
-				<key>fallback</key>
-				<string>ff6600</string>
 				<key>alpha</key>
 				<true/>
 				<key>defaultsPath</key>

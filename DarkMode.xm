@@ -64,7 +64,7 @@
     }
     if ([self valueForKey:@"_separatorView"]) {
         UIView *separatorView = (UIView *)([self valueForKey:@"_separatorView"]);
-        separatorView.backgroundColor = [prefs colorForKey:@"seperatorColor"];
+        separatorView.backgroundColor = [prefs colorForKey:@"separatorColor"];
     }
 }
 %end
@@ -86,11 +86,11 @@
     }
     if ([self valueForKey:@"_separatorView"]) {
         UIView *separatorView = (UIView *)([self valueForKey:@"_separatorView"]);
-        separatorView.backgroundColor = [prefs colorForKey:@"seperatorColor"];
+        separatorView.backgroundColor = [prefs colorForKey:@"separatorColor"];
     }
 }
 -(void)touchesBegan:(id)arg1 withEvent:(id)arg2{
-    self.backgroundColor = [prefs colorForKey:@"selectColor"];//kGrayColor; [prefs colorForKey:@"seperatorColor"];
+    self.backgroundColor = [prefs colorForKey:@"selectColor"];//kGrayColor; [prefs colorForKey:@"separatorColor"];
     //Not sure what this one is, Im assuming its what color happens when they select something
 }
 %end
@@ -140,7 +140,6 @@
 %hook CSTextRenderView
 -(void)layoutSubviews{
     %orig;
-    self.tintColor = [prefs colorForKey:@"tableTintColor"];
     // NSAttributedString *attributedText = MSHookIvar<NSAttributedString *>(self, "_attributedText");
     // NSMutableAttributedString *mutableAttributedText= attributedText.mutableCopy;
     // [mutableAttributedText.mutableString setString:[attributedText.string stringByReplacingOccurrencesOfString:@"kCGColorSpaceModelRGB 0 0 0 1" withString:@"kCGColorSpaceModelRGB 1 1 1 1"]];
@@ -197,7 +196,6 @@
 -(void)layoutSubviews {
     %orig;
     self.backgroundColor = [prefs colorForKey:@"backgroundColor"];
-    self.tintColor = [prefs colorForKey:@"tableTintColor"];//[UIColor whiteColor];
 }
 %end
 %hook UILabel
@@ -251,6 +249,12 @@
     } else {
         %orig(arg1);
     }
+}
+%end
+%hook UITableView
+-(void)setSeparatorColor:(UIColor *)arg1{
+    arg1 = [prefs colorForKey:@"separatorColor"];
+    %orig(arg1);
 }
 %end
 %end
