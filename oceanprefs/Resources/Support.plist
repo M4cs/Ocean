@@ -4,7 +4,6 @@
 	<dict>
 		<key>items</key>
 		<array>
-
 			<dict>
 				<key>cell</key>
 				<string>PSLinkCell</string>
@@ -79,7 +78,7 @@
 				<key>url</key>
 				<string>https://twitter.com/Midnightchip</string>
 				<key>label</key>
-				<string>@CreatureSurvive</string>
+				<string>@Midnightchip</string>
 			</dict>
 
 			<dict>

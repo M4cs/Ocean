@@ -8,15 +8,17 @@
 				<key>cell</key>
 				<string>PSSwitchCell</string>
 				<key>label</key>
-				<string>Enabled</string>
+				<string>Darkmode Enabled</string>
 				<key>key</key>
-				<string>Enabled</string>
+				<string>darkEnabled</string>
 				<key>isGroupToggle</key>
 				<false/>
 				<key>PostNotification</key>
 				<string>com.midnightchips.oceanprefs.prefschanged</string>
 				<key>defaults</key>
 				<string>com.midnightchips.oceanprefs</string>
+				<key>default</key>
+				<true/>
 			</dict>
 
 			<dict>
@@ -33,11 +35,11 @@
 				<key>label</key>
 				<string>Background Color</string>
 				<key>fallback</key>
-				<string>FFFFFF</string>
+				<string>212121</string>
 				<key>alpha</key>
 				<true/>
 				<key>defaultsPath</key>
-				<string>/Library/PreferenceBundles/oceanprefs</string>
+				<string>/Library/PreferenceBundles/oceanprefs.bundle</string>
 			</dict>
 
 			<dict>
@@ -54,11 +56,11 @@
 				<key>label</key>
 				<string>TextColor</string>
 				<key>fallback</key>
-				<string>FFFFFF</string>
+				<string>f9f9f9</string>
 				<key>alpha</key>
 				<true/>
 				<key>defaultsPath</key>
-				<string>/Library/PreferenceBundles/oceanprefs</string>
+				<string>/Library/PreferenceBundles/oceanprefs.bundle</string>
 			</dict>
 
 			<dict>
@@ -75,11 +77,11 @@
 				<key>label</key>
 				<string>Package Info Text</string>
 				<key>fallback</key>
-				<string>FFFFFF</string>
+				<string>f9f9f9</string>
 				<key>alpha</key>
 				<true/>
 				<key>defaultsPath</key>
-				<string>/Library/PreferenceBundles/oceanprefs</string>
+				<string>/Library/PreferenceBundles/oceanprefs.bundle</string>
 			</dict>
 
 			<dict>
@@ -96,11 +98,11 @@
 				<key>label</key>
 				<string>Seperator Text Color</string>
 				<key>fallback</key>
-				<string>FFFFFF</string>
+				<string>f9f9f9</string>
 				<key>alpha</key>
 				<true/>
 				<key>defaultsPath</key>
-				<string>/Library/PreferenceBundles/oceanprefs</string>
+				<string>/Library/PreferenceBundles/oceanprefs.bundle</string>
 			</dict>
 
 			<dict>
@@ -117,11 +119,11 @@
 				<key>label</key>
 				<string>Select Color</string>
 				<key>fallback</key>
-				<string>FFFFFF</string>
+				<string>f9f9f9</string>
 				<key>alpha</key>
 				<true/>
 				<key>defaultsPath</key>
-				<string>/Library/PreferenceBundles/oceanprefs</string>
+				<string>/Library/PreferenceBundles/oceanprefs.bundle</string>
 			</dict>
 
 			<dict>
@@ -138,11 +140,11 @@
 				<key>label</key>
 				<string>Table Tint Color</string>
 				<key>fallback</key>
-				<string>FFFFFF</string>
+				<string>ff6600</string>
 				<key>alpha</key>
 				<true/>
 				<key>defaultsPath</key>
-				<string>/Library/PreferenceBundles/oceanprefs</string>
+				<string>/Library/PreferenceBundles/oceanprefs.bundle</string>
 			</dict>
 
 			<dict>
@@ -159,11 +161,11 @@
 				<key>label</key>
 				<string>Bar and Header Color</string>
 				<key>fallback</key>
-				<string>FFFFFF</string>
+				<string>161616</string>
 				<key>alpha</key>
 				<true/>
 				<key>defaultsPath</key>
-				<string>/Library/PreferenceBundles/oceanprefs</string>
+				<string>/Library/PreferenceBundles/oceanprefs.bundle</string>
 			</dict>
 
 			<dict>
@@ -180,11 +182,11 @@
 				<key>label</key>
 				<string>Bar Color</string>
 				<key>fallback</key>
-				<string>FFFFFF</string>
+				<string>161616</string>
 				<key>alpha</key>
 				<true/>
 				<key>defaultsPath</key>
-				<string>/Library/PreferenceBundles/oceanprefs</string>
+				<string>/Library/PreferenceBundles/oceanprefs.bundle</string>
 			</dict>
 
 			<dict>
@@ -201,11 +203,11 @@
 				<key>label</key>
 				<string>Buttons Color</string>
 				<key>fallback</key>
-				<string>FFFFFF</string>
+				<string>ff6600</string>
 				<key>alpha</key>
 				<true/>
 				<key>defaultsPath</key>
-				<string>/Library/PreferenceBundles/oceanprefs</string>
+				<string>/Library/PreferenceBundles/oceanprefs.bundle</string>
 			</dict>
 
 			<dict>
@@ -260,6 +262,6 @@
 			</dict>
 		</array>
 		<key>title</key>
-		<string>oceanprefs</string>
+		<string>Ocean</string>
 	</dict>
 </plist>
