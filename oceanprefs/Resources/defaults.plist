@@ -10,12 +10,10 @@
 		<string>f9f9f9</string>
 		<key>infoText</key>
 		<string>f9f9f9</string>
-		<key>seperatorColor</key>
+		<key>separatorColor</key>
 		<string>f9f9f9</string>
 		<key>selectColor</key>
 		<string>f9f9f9</string>
-		<key>tableTintColor</key>
-		<string>ff6600</string>
 		<key>visualEffectColor</key>
 		<string>181818</string>
 		<key>barColor</key>

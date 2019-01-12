@@ -7,23 +7,17 @@
 %group Tint
 %hook UIImageView
 -(long long)_defaultRenderingMode{
-	if([self.superview isKindOfClass:NSClassFromString(@"ANEMWebImageButton")]){
+	if([self.superview isKindOfClass:NSClassFromString(@"ANEMWebImageButton")] || [self.superview.superview isKindOfClass:%c(PackageListHeader)]){
 		return 2;
 	}
 	return %orig;
 }
 -(void)setTintColor:(UIColor *)arg1{
-	if([self.superview isKindOfClass:NSClassFromString(@"ANEMWebImageButton")]){
+	if([self.superview isKindOfClass:NSClassFromString(@"ANEMWebImageButton")] || [self.superview.superview isKindOfClass:%c(PackageListHeader)]){
 		arg1 = [prefs colorForKey:@"tintColor"];
 		%orig(arg1);
 	}
 	%orig(arg1);
-}
-%end
-%hook UITableView
--(void)setSeparatorColor:(UIColor *)arg1{
-    arg1 = [prefs colorForKey:@"tintColor"];
-    %orig(arg1);
 }
 %end
 %hook UINavigationBar
@@ -38,22 +32,12 @@
     %orig(arg1);
 }
 %end
-// %hook UISegmentedControl
-// -(void)setTintColor:(UIColor *)arg1 {
-//     for (UIView *subview in self.subviews) {
-//         subview.tintColor = [prefs colorForKey:@"tintColor"];
-//         for (UIView *subsubview in subview.subviews) {
-//             subsubview.tintColor = [prefs colorForKey:@"tintColor"];
-//         }
-//     }
-// }
-// %end
-// %hook UISegment
-// -(void)setTintColor:(id)arg1{
-// 	arg1 = [prefs colorForKey:@"tintColor"];
-// 	%orig(arg1);
-// }
-//%end
+%hook UISegmentedControl
+-(void)layoutSubviews {
+	%orig;
+	self.tintColor = [prefs colorForKey:@"tintColor"];
+}
+%end
 %hook SourceProgressIndicatorView
 -(void)setTintColor:(UIColor *)arg1 {
     arg1 = [prefs colorForKey:@"tintColor"];
@@ -86,8 +70,19 @@
 %end
 %hook UIButton
 -(void)setTitleColor:(id)arg1 forState:(unsigned long long)arg2 {
-	arg1 = [prefs colorForKey:@"tintColor"];
+	if (![self isKindOfClass:%c(PackageQueueButton)]) {
+		arg1 = [prefs colorForKey:@"tintColor"];
+	} else {
+		arg1 = [UIColor whiteColor];
+	}
 	%orig(arg1, arg2);
+}
+
+-(void)layoutSubviews {
+	%orig;
+	if ([self.superview isKindOfClass:%c(PackageListHeader)]) {
+		self.tintColor = [prefs colorForKey:@"tintColor"];
+	}
 }
 %end
 %hook DepictionTableButtonView
@@ -127,6 +122,18 @@
     %orig;
     UIView *badge = MSHookIvar<UIView*>(self, "_badge");
     badge.backgroundColor = [prefs colorForKey:@"tintColor"];
+}
+%end
+%hook UITableView
+-(void)layoutSubviews {
+    %orig;
+    self.tintColor = [prefs colorForKey:@"tintColor"];
+}
+%end
+%hook CSTextRenderView
+-(void)layoutSubviews {
+    %orig;
+    self.tintColor = [prefs colorForKey:@"tintColor"];
 }
 %end
 %end
