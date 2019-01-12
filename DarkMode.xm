@@ -6,6 +6,17 @@
 #define kLighterDarkColor [UIColor colorWithRed:0.11 green:0.11 blue:0.11 alpha:1.0];*/
 #import <Headers/Interfaces.h>
 
+UIColor* lighterColorForColor(UIColor* c, CGFloat value)
+{
+    CGFloat r, g, b, a;
+    if ([c getRed:&r green:&g blue:&b alpha:&a])
+        return [UIColor colorWithRed:MIN(r + value, 1.0)
+                               green:MIN(g + value, 1.0)
+                                blue:MIN(b + value, 1.0)
+                               alpha:a];
+    return nil;
+}
+
 %group DarkMode
 %hook UICollectionView
 -(void)layoutSubviews {
@@ -67,6 +78,11 @@
         separatorView.backgroundColor = [prefs colorForKey:@"separatorColor"];
     }
 }
+-(UILabel*)titleLabel {
+    UILabel* lbl = %orig;
+    lbl.textColor = [prefs colorForKey:@"textColor"];
+    return lbl;
+}
 %end
 %hook PackageListHeader
 -(void)layoutSubviews {
@@ -94,9 +110,15 @@
     //Not sure what this one is, Im assuming its what color happens when they select something
 }
 %end
+%hook UITableViewCellSelectedBackground
+-(void)layoutSubviews{
+    ((UIView*)self).backgroundColor = [prefs colorForKey:@"selectColor"];//kGrayColor; [prefs colorForKey:@"separatorColor"];
+    //Not sure what this one is, Im assuming its what color happens when they select something
+}
+%end
 %hook FeaturedButton
 -(void)setBackgroundColor:(UIColor *)arg1{
-    arg1 = [prefs colorForKey:@"infoText"];//kLighterDarkColor;
+    arg1 = lighterColorForColor([prefs colorForKey:@"backgroundColor"], 0.15);
     %orig(arg1);
 }
 %end
@@ -120,8 +142,6 @@
 -(void)viewDidLoad{
     %orig;
     self.view.backgroundColor = [prefs colorForKey:@"backgroundColor"];
-    //DRM
-
 }
 %end
 %hook PackageViewController
@@ -152,7 +172,7 @@
 }
 %end
 %hook UIViewController
--(void)viewDidLoad{
+-(void)viewDidAppear:(BOOL)arg1 {
     %orig;
     self.navigationController.navigationBar.largeTitleTextAttributes = @{NSForegroundColorAttributeName: [prefs colorForKey:@"textColor"]};
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [prefs colorForKey:@"textColor"]};
@@ -201,7 +221,7 @@
 %hook UILabel
 -(void)layoutSubviews {
     %orig;
-    if ([self.superview isMemberOfClass:@("UITableView")]){
+    if ([self.superview isMemberOfClass:@("UITableView")] || [[self _viewControllerForAncestor] isKindOfClass:%c(SourcesViewController)]){
         self.textColor = [prefs colorForKey:@"textColor"];
     }
 }
@@ -255,6 +275,17 @@
 -(void)setSeparatorColor:(UIColor *)arg1{
     arg1 = [prefs colorForKey:@"separatorColor"];
     %orig(arg1);
+}
+%end
+%hook PackageQueueButton
+-(void)setBackgroundColor:(UIColor*)arg1 {
+    CGFloat r, g, b, a;
+    if ([arg1 getRed:&r green:&g blue:&b alpha:&a]) {
+        if (a == 0.03) {
+            arg1 = lighterColorForColor([prefs colorForKey:@"backgroundColor"], 0.15);
+        }
+    }
+    %orig;
 }
 %end
 %end

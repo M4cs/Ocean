@@ -103,3 +103,7 @@
 
 @interface DepictionTableButtonView : NSObject
 @end
+
+@interface UIView (Internal)
+-(id)_viewControllerForAncestor;
+@end

@@ -3,7 +3,7 @@
 <plist version="1.0">
 	<dict>
 		<key>darkEnabled</key>
-		<true/>
+		<false/>
 		<key>backgroundColor</key>
 		<string>212121</string>
 		<key>textColor</key>
@@ -13,7 +13,7 @@
 		<key>separatorColor</key>
 		<string>f9f9f9</string>
 		<key>selectColor</key>
-		<string>f9f9f9</string>
+		<string>3b3b3b</string>
 		<key>visualEffectColor</key>
 		<string>181818</string>
 		<key>barColor</key>
@@ -21,6 +21,6 @@
 		<key>tintColor</key>
 		<string>ff6600</string>
 		<key>tintEnabled</key>
-		<true/>
+		<false/>
 	</dict>
 </plist>
