@@ -6,6 +6,7 @@
 #define kLighterDarkColor [UIColor colorWithRed:0.11 green:0.11 blue:0.11 alpha:1.0];*/
 #import <Headers/Interfaces.h>
 
+%group DarkMode
 %hook UICollectionView
 -(void)layoutSubviews {
     %orig;
@@ -252,3 +253,10 @@
     }
 }
 %end
+%end
+
+%ctor {
+    if ([prefs boolForKey:@"darkEnabled"]) {
+        %init(DarkMode);
+    }
+}

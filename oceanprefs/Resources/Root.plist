@@ -161,7 +161,7 @@
 				<key>label</key>
 				<string>Bar and Header Color</string>
 				<key>fallback</key>
-				<string>161616</string>
+				<string>181818</string>
 				<key>alpha</key>
 				<true/>
 				<key>defaultsPath</key>
@@ -182,13 +182,33 @@
 				<key>label</key>
 				<string>Bar Color</string>
 				<key>fallback</key>
-				<string>161616</string>
+				<string>181818</string>
 				<key>alpha</key>
 				<true/>
 				<key>defaultsPath</key>
 				<string>/Library/PreferenceBundles/oceanprefs.bundle</string>
 			</dict>
 
+			<dict>
+				<key>cell</key>
+				<string>PSGroupCell</string>
+			</dict>
+			<dict>
+				<key>cell</key>
+				<string>PSSwitchCell</string>
+				<key>label</key>
+				<string>Custom tint color</string>
+				<key>key</key>
+				<string>tintEnabled</string>
+				<key>isGroupToggle</key>
+				<false/>
+				<key>PostNotification</key>
+				<string>com.midnightchips.oceanprefs.prefschanged</string>
+				<key>defaults</key>
+				<string>com.midnightchips.oceanprefs</string>
+				<key>default</key>
+				<true/>
+			</dict>
 			<dict>
 				<key>PostNotification</key>
 				<string>com.midnightchips.oceanprefs.prefschanged</string>
@@ -201,7 +221,7 @@
 				<key>key</key>
 				<string>tintColor</string>
 				<key>label</key>
-				<string>Buttons Color</string>
+				<string>Tint Color</string>
 				<key>fallback</key>
 				<string>ff6600</string>
 				<key>alpha</key>

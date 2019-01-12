@@ -4,6 +4,7 @@
 
 #import <Headers/Interfaces.h>
 
+%group Tint
 %hook UIImageView
 -(long long)_defaultRenderingMode{
 	if([self.superview isKindOfClass:NSClassFromString(@"ANEMWebImageButton")]){
@@ -99,7 +100,7 @@
 }
 %end
 @interface DepictionTabControl : UIView
-@property(nonatomic) _Bool highlighted; 
+@property(nonatomic) _Bool highlighted;
 @end
 %hook DepictionTabControl
 - (void)layoutSubviews {
@@ -120,7 +121,7 @@
         tabViewHighlight.backgroundColor = [prefs colorForKey:@"tintColor"];
     }
 }
-%end 
+%end
 %hook UITabBarButton //This sets the color for any badge that belongs to a TabBarIcon.
 -(void)layoutSubviews{
     %orig;
@@ -128,3 +129,10 @@
     badge.backgroundColor = [prefs colorForKey:@"tintColor"];
 }
 %end
+%end
+
+%ctor {
+	if ([prefs boolForKey:@"tintEnabled"]) {
+        %init(Tint);
+    }
+}
