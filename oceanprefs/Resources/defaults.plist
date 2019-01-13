@@ -9,14 +9,12 @@
 		<key>textColor</key>
 		<string>f9f9f9</string>
 		<key>infoText</key>
-		<string>f9f9f9</string>
+		<string>a9a9a9</string>
 		<key>separatorColor</key>
-		<string>f9f9f9</string>
+		<string>a4a4a4</string>
 		<key>selectColor</key>
 		<string>3b3b3b</string>
 		<key>visualEffectColor</key>
-		<string>181818</string>
-		<key>barColor</key>
 		<string>181818</string>
 		<key>tintColor</key>
 		<string>ff6600</string>

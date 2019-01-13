@@ -77,7 +77,7 @@
 				<key>label</key>
 				<string>Package Info Text</string>
 				<key>fallback</key>
-				<string>f9f9f9</string>
+				<string>a9a9a9</string>
 				<key>alpha</key>
 				<true/>
 				<key>defaultsPath</key>
@@ -98,7 +98,7 @@
 				<key>label</key>
 				<string>Separator Color</string>
 				<key>fallback</key>
-				<string>f9f9f9</string>
+				<string>a4a4a4</string>
 				<key>alpha</key>
 				<true/>
 				<key>defaultsPath</key>
@@ -139,27 +139,6 @@
 				<string>visualEffectColor</string>
 				<key>label</key>
 				<string>Bar and Header Color</string>
-				<key>fallback</key>
-				<string>181818</string>
-				<key>alpha</key>
-				<true/>
-				<key>defaultsPath</key>
-				<string>/Library/PreferenceBundles/oceanprefs.bundle</string>
-			</dict>
-
-			<dict>
-				<key>PostNotification</key>
-				<string>com.midnightchips.oceanprefs.prefschanged</string>
-				<key>cell</key>
-				<string>PSLinkCell</string>
-				<key>cellClass</key>
-				<string>CSColorDisplayCell</string>
-				<key>defaults</key>
-				<string>com.midnightchips.oceanprefs</string>
-				<key>key</key>
-				<string>barColor</string>
-				<key>label</key>
-				<string>Bar Color</string>
 				<key>fallback</key>
 				<string>181818</string>
 				<key>alpha</key>
