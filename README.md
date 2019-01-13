@@ -9,13 +9,13 @@
 
 *This Source Code may be more updated than the current stable release*
 
-## What is Ocean?
+# What is Ocean?
 
 Ocean is an attempt to bring features we felt were missing from Sileo. Some features in Ocean may make it into Sileo eventually so if you like any features we add make sure to send feedback to the Sileo team as well. 
 
 Ocean takes an amazing package manager and adds functionality that isn't available with any other tweaks. With Ocean you have the ability to:
 
-### Customize The Color Scheme Of Sileo
+## Customize The Color Scheme Of Sileo
 <p align='center'>
  <a href=""><img width="182px" height="323.75px" src="https://i.imgur.com/WoIIPbg.png"></a>
  <a href=""><img width="182px" height="323.75px" src="https://i.imgur.com/5EZdVQ9.png"></a>
@@ -23,23 +23,23 @@ Ocean takes an amazing package manager and adds functionality that isn't availab
  <a href=""><img width="182px" height="323.75px" src="https://i.imgur.com/7bPrWEL.png"></a>
 </p>
 
-### Export Your Tweaks Easier Than Ever
+## Export Your Tweaks Easier Than Ever
 <p align='center'>
  <a href=""><img width="300px" height="243px" src="https://oceantweak.tk/repo/depictions/Ocean/assets/app/export.jpg"></a>
 </p>
 
-### Fix Adding Multiple Repos At Once, Add Unsupported Repositories, and Get Rid Of That Pesky Deprecated Webview Banner!
+## Fix Adding Multiple Repos At Once, Add Unsupported Repositories, and Get Rid Of That Pesky Deprecated Webview Banner!
 
 # How To Install Ocean
 
 
-### Through Cydia or Sileo
+## Through Cydia or Sileo
 
 To install Ocean add our repository to Cydia or Sileo by going to Sources > Edit > Add and typing `https://oceantweak.tk/repo`. Once you add our repository you will be able to search in either package manager and download it!
 
 After installing and respringing make sure to close the Sileo application if it was running in the background. Go to your Settings app and check out some of the configuration settings there. Like any other tweak you'll be able to change your preferences from Settings. Close Sileo after saving settings to ensure things are working (*functionality to close from the Settings pane coming in future builds*).
 
-### Building From Source w/ Theos
+###Building From Source w/ Theos
 
 To build Ocean from source you will need libCSPreferences and libCSColorPicker libraries to compile. You can get these at CreatureSurvive's repository.
 
