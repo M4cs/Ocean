@@ -106,14 +106,14 @@ UIColor* lighterColorForColor(UIColor* c, CGFloat value)
     }
 }
 -(void)touchesBegan:(id)arg1 withEvent:(id)arg2{
-    self.backgroundColor = [prefs colorForKey:@"selectColor"];//kGrayColor; [prefs colorForKey:@"separatorColor"];
-    //Not sure what this one is, Im assuming its what color happens when they select something
+    %orig;
+    self.backgroundColor = [prefs colorForKey:@"selectColor"];
 }
 %end
 %hook UITableViewCellSelectedBackground
--(void)layoutSubviews{
-    ((UIView*)self).backgroundColor = [prefs colorForKey:@"selectColor"];//kGrayColor; [prefs colorForKey:@"separatorColor"];
-    //Not sure what this one is, Im assuming its what color happens when they select something
+-(void)setSelectionTintColor:(id)arg1{
+    arg1 = [prefs colorForKey:@"selectColor"];
+    %orig;
 }
 %end
 %hook FeaturedButton
@@ -198,6 +198,12 @@ UIColor* lighterColorForColor(UIColor* c, CGFloat value)
 	return 1;
 }
 %end
+%hook UIApplication
+-(void)setStatusBarStyle:(long long)arg1 {
+    arg1 = UIStatusBarStyleLightContent;
+    %orig;
+}
+%end
 %hook UITableViewCell
 -(void)layoutSubviews {
     %orig;
@@ -223,6 +229,10 @@ UIColor* lighterColorForColor(UIColor* c, CGFloat value)
     %orig;
     if ([self.superview isMemberOfClass:@("UITableView")] || [[self _viewControllerForAncestor] isKindOfClass:%c(SourcesViewController)]){
         self.textColor = [prefs colorForKey:@"textColor"];
+    } else if ([self isMemberOfClass:[UILabel class]] && [[self _viewControllerForAncestor] isKindOfClass:%c(SettingsViewController)]) {
+        if (((UIViewController*)[self _viewControllerForAncestor]).view == self.superview.superview) {
+            self.textColor = [prefs colorForKey:@"textColor"];
+        }
     }
 }
 %end
@@ -256,7 +266,7 @@ UIColor* lighterColorForColor(UIColor* c, CGFloat value)
     %orig;
     if([self.superview isKindOfClass:NSClassFromString(@"TabBar")]){
         for(UIImageView *imageView in self.subviews){
-            imageView.backgroundColor = [prefs colorForKey:@"barColor"];//kDarkishGrayColor;
+            imageView.backgroundColor = [prefs colorForKey:@"visualEffectColor"];//kDarkishGrayColor;
         }
     }
 }
@@ -286,6 +296,53 @@ UIColor* lighterColorForColor(UIColor* c, CGFloat value)
         }
     }
     %orig;
+}
+%end
+%hook UISearchBarTextField
+-(void)didMoveToWindow {
+    %orig;
+    ((UITextField*)self).textColor = [prefs colorForKey:@"textColor"];
+}
+%end
+%hook UIView
+-(void)didMoveToWindow {
+    %orig;
+    if ([self isMemberOfClass:[UIView class]] && [[self _viewControllerForAncestor] isKindOfClass:%c(PackageViewController)] && [self.superview isKindOfClass:[UIScrollView class]]) {
+        self.backgroundColor = [prefs colorForKey:@"backgroundColor"];
+        for (UILabel* lbl in self.subviews) {
+            if ([lbl isKindOfClass:[UILabel class]]) {
+                lbl.textColor = [prefs colorForKey:@"textColor"];
+                break;
+            }
+        }
+    } else if ([[self _viewControllerForAncestor] isKindOfClass:%c(DepictionSubpageViewController)]) {
+        if (((UIViewController*)[self _viewControllerForAncestor]).view == self) {
+            self.backgroundColor = [prefs colorForKey:@"backgroundColor"];
+        }
+    }
+}
+%end
+%hook UIScrollView
+-(void)didMoveToWindow {
+    %orig;
+    if ([[self _viewControllerForAncestor] isKindOfClass:%c(PackageViewController)]) {
+        if (((UIViewController*)[self _viewControllerForAncestor]).view == self.superview) {
+            self.backgroundColor = [prefs colorForKey:@"backgroundColor"];
+        }
+    }
+}
+%end
+%hook SettingsHeaderContainerView
+-(void)layoutSubviews {
+    %orig;
+    for (UIView* v in ((UIView*)self).subviews) {
+        if ([v isMemberOfClass:[UIView class]]) {
+            if (v.frame.origin.x == 0 && v.frame.origin.y == 0) {
+                v.backgroundColor = lighterColorForColor([prefs colorForKey:@"backgroundColor"], 0.05);
+                break;
+            }
+        }
+    }
 }
 %end
 %end
