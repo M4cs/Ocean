@@ -1,6 +1,7 @@
 #import <Headers/Interfaces.h>
 #import <Headers/NSString+URLsFromString.h>
 
+%group Repos
 %hook SourcesViewController
 
 - (void)presentAddSourceSkippingPasteboard:(BOOL)skippingPasteboard{
@@ -22,22 +23,29 @@
 
         UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"Add Source" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
             [manager addReposWithURLs:URLs];
-            [self refreshSources:nil];    
-            [self setEditing:NO animated:YES];  
+            [self refreshSources:nil];
+            [self setEditing:NO animated:YES];
         }];
         UIAlertAction *notUsed = [UIAlertAction actionWithTitle:@"Enter Manually" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
             [self presentAddSourceSkippingPasteboard:YES];
         }];
-            
-            
+
+
         [autoPasteboardSourceController addAction:notUsed];
         [autoPasteboardSourceController addAction:confirm];
         [self presentViewController:autoPasteboardSourceController animated:YES completion:nil];
         return;
-        
+
 
     }else{
         %orig;
     }
 }
-%end 
+%end
+%end
+
+%ctor {
+    if ([prefs boolForKey:@"multiRepos"]) {
+        %init(Repos);
+    }
+}

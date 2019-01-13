@@ -20,5 +20,13 @@
 		<string>ff6600</string>
 		<key>tintEnabled</key>
 		<false/>
+		<key>hideWarnings</key>
+		<true/>
+		<key>multiRepos</key>
+		<true/>
+		<key>repoSupport</key>
+		<true/>
+		<key>exportBtn</key>
+		<true/>
 	</dict>
 </plist>

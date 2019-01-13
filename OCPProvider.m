@@ -9,7 +9,7 @@
     static CSPreferencesProvider *sharedProvider;
     dispatch_once(&once, ^{
 
-        NSString *tweakId = @"com.midnightchips.oceanprefs";
+        NSString *tweakId = @"tk.oceantweak.oceanprefs";
         NSString *prefsNotification = [tweakId stringByAppendingString:@".prefschanged"];
         NSString *defaultsPath = @"/Library/PreferenceBundles/oceanprefs.bundle/defaults.plist";
 

@@ -6,30 +6,11 @@
 		<array>
 			<dict>
 				<key>cell</key>
-				<string>PSLinkCell</string>
-				<key>cellClass</key>
-				<string>CSPDeveloperCell</string>
-				<key>action</key>
-				<string>openInBrowser:</string>
-				<key>username</key>
-				<string>MidnightChip</string>
-				<key>provider</key>
-				<string>0</string>
-				<key>height</key>
-				<string>81</string>
-				<key>devName</key>
-				<string>MidnightChip</string>
-				<key>devTitle</key>
-				<string>MidnightChip</string>
-				<key>devSubtitle</key>
-				<string>Developer &amp; Designer</string>
-			</dict>
-
-			<dict>
-				<key>cell</key>
 				<string>PSGroupCell</string>
 				<key>label</key>
 				<string>Support</string>
+				<key>footerText</key>
+				<string>Created by @maxbridgland, @simalary_ch, @MidnightChip, @Muirey03 and @_Easy_Z_</string>
 			</dict>
 
 			<dict>
@@ -38,64 +19,24 @@
 				<key>cell</key>
 				<string>PSLinkCell</string>
 				<key>url</key>
-				<string>https://github.com/MidnightChip/oceanprefs/issues</string>
+				<string>https://github.com/M4cs/Ocean/issues</string>
 				<key>label</key>
 				<string>Report A Bug</string>
 			</dict>
 
 			<dict>
 				<key>action</key>
-				<string>email:</string>
-				<key>cell</key>
-				<string>PSLinkCell</string>
-				<key>mailto</key>
-				<string>mailto:midnightchips@gmail.com?subject=oceanprefs%20v0.0.1</string>
-				<key>label</key>
-				<string>Email Support</string>
-			</dict>
-
-			<dict>
-				<key>action</key>
-				<string>copyTweakList</string>
-				<key>cell</key>
-				<string>PSButtonCell</string>
-				<key>label</key>
-				<string>Copy Tweak List</string>
-			</dict>
-
-			<dict>
-				<key>cell</key>
-				<string>PSGroupCell</string>
-				<key>label</key>
-				<string>Reach Out</string>
-			</dict>
-
-			<dict>
-				<key>action</key>
 				<string>openInBrowser:</string>
 				<key>cell</key>
 				<string>PSLinkCell</string>
 				<key>url</key>
-				<string>https://twitter.com/Midnightchip</string>
+				<string>https://twitter.com/OceanForSileo</string>
 				<key>label</key>
-				<string>@Midnightchip</string>
-			</dict>
-
-			<dict>
-				<key>action</key>
-				<string>openInBrowser:</string>
-				<key>cell</key>
-				<string>PSLinkCell</string>
-				<key>url</key>
-				<string>https://paypal.me/MidnightChips</string>
-				<key>icon</key>
-				<string/>
-				<key>label</key>
-				<string>Buy Me A Beer</string>
+				<string>@TeamOcean</string>
 			</dict>
 
 		</array>
 		<key>title</key>
-		<string>Contact Me</string>
+		<string>Support &amp; Creators</string>
 	</dict>
 </plist>

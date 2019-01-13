@@ -11,7 +11,7 @@
 			<key>detail</key>
 			<string>CSPListController</string>
 			<key>icon</key>
-			<string>icon.png</string>
+			<string>icon-small.png</string>
 			<key>isController</key>
 			<true/>
 			<key>label</key>

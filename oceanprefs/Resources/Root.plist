@@ -14,22 +14,22 @@
 				<key>isGroupToggle</key>
 				<false/>
 				<key>PostNotification</key>
-				<string>com.midnightchips.oceanprefs.prefschanged</string>
+				<string>tk.oceantweak.oceanprefs.prefschanged</string>
 				<key>defaults</key>
-				<string>com.midnightchips.oceanprefs</string>
+				<string>tk.oceantweak.oceanprefs</string>
 				<key>default</key>
 				<false/>
 			</dict>
 
 			<dict>
 				<key>PostNotification</key>
-				<string>com.midnightchips.oceanprefs.prefschanged</string>
+				<string>tk.oceantweak.oceanprefs.prefschanged</string>
 				<key>cell</key>
 				<string>PSLinkCell</string>
 				<key>cellClass</key>
 				<string>CSColorDisplayCell</string>
 				<key>defaults</key>
-				<string>com.midnightchips.oceanprefs</string>
+				<string>tk.oceantweak.oceanprefs</string>
 				<key>key</key>
 				<string>backgroundColor</string>
 				<key>label</key>
@@ -44,13 +44,13 @@
 
 			<dict>
 				<key>PostNotification</key>
-				<string>com.midnightchips.oceanprefs.prefschanged</string>
+				<string>tk.oceantweak.oceanprefs.prefschanged</string>
 				<key>cell</key>
 				<string>PSLinkCell</string>
 				<key>cellClass</key>
 				<string>CSColorDisplayCell</string>
 				<key>defaults</key>
-				<string>com.midnightchips.oceanprefs</string>
+				<string>tk.oceantweak.oceanprefs</string>
 				<key>key</key>
 				<string>Text Color</string>
 				<key>label</key>
@@ -65,13 +65,13 @@
 
 			<dict>
 				<key>PostNotification</key>
-				<string>com.midnightchips.oceanprefs.prefschanged</string>
+				<string>tk.oceantweak.oceanprefs.prefschanged</string>
 				<key>cell</key>
 				<string>PSLinkCell</string>
 				<key>cellClass</key>
 				<string>CSColorDisplayCell</string>
 				<key>defaults</key>
-				<string>com.midnightchips.oceanprefs</string>
+				<string>tk.oceantweak.oceanprefs</string>
 				<key>key</key>
 				<string>infoText</string>
 				<key>label</key>
@@ -86,13 +86,13 @@
 
 			<dict>
 				<key>PostNotification</key>
-				<string>com.midnightchips.oceanprefs.prefschanged</string>
+				<string>tk.oceantweak.oceanprefs.prefschanged</string>
 				<key>cell</key>
 				<string>PSLinkCell</string>
 				<key>cellClass</key>
 				<string>CSColorDisplayCell</string>
 				<key>defaults</key>
-				<string>com.midnightchips.oceanprefs</string>
+				<string>tk.oceantweak.oceanprefs</string>
 				<key>key</key>
 				<string>separatorColor</string>
 				<key>label</key>
@@ -107,13 +107,13 @@
 
 			<dict>
 				<key>PostNotification</key>
-				<string>com.midnightchips.oceanprefs.prefschanged</string>
+				<string>tk.oceantweak.oceanprefs.prefschanged</string>
 				<key>cell</key>
 				<string>PSLinkCell</string>
 				<key>cellClass</key>
 				<string>CSColorDisplayCell</string>
 				<key>defaults</key>
-				<string>com.midnightchips.oceanprefs</string>
+				<string>tk.oceantweak.oceanprefs</string>
 				<key>key</key>
 				<string>selectColor</string>
 				<key>label</key>
@@ -128,13 +128,13 @@
 
 			<dict>
 				<key>PostNotification</key>
-				<string>com.midnightchips.oceanprefs.prefschanged</string>
+				<string>tk.oceantweak.oceanprefs.prefschanged</string>
 				<key>cell</key>
 				<string>PSLinkCell</string>
 				<key>cellClass</key>
 				<string>CSColorDisplayCell</string>
 				<key>defaults</key>
-				<string>com.midnightchips.oceanprefs</string>
+				<string>tk.oceantweak.oceanprefs</string>
 				<key>key</key>
 				<string>visualEffectColor</string>
 				<key>label</key>
@@ -161,21 +161,21 @@
 				<key>isGroupToggle</key>
 				<false/>
 				<key>PostNotification</key>
-				<string>com.midnightchips.oceanprefs.prefschanged</string>
+				<string>tk.oceantweak.oceanprefs.prefschanged</string>
 				<key>defaults</key>
-				<string>com.midnightchips.oceanprefs</string>
+				<string>tk.oceantweak.oceanprefs</string>
 				<key>default</key>
 				<false/>
 			</dict>
 			<dict>
 				<key>PostNotification</key>
-				<string>com.midnightchips.oceanprefs.prefschanged</string>
+				<string>tk.oceantweak.oceanprefs.prefschanged</string>
 				<key>cell</key>
 				<string>PSLinkCell</string>
 				<key>cellClass</key>
 				<string>CSColorDisplayCell</string>
 				<key>defaults</key>
-				<string>com.midnightchips.oceanprefs</string>
+				<string>tk.oceantweak.oceanprefs</string>
 				<key>key</key>
 				<string>tintColor</string>
 				<key>label</key>
@@ -186,6 +186,67 @@
 				<true/>
 				<key>defaultsPath</key>
 				<string>/Library/PreferenceBundles/oceanprefs.bundle</string>
+			</dict>
+
+			<dict>
+				<key>cell</key>
+				<string>PSGroupCell</string>
+			</dict>
+			<dict>
+				<key>cell</key>
+				<string>PSSwitchCell</string>
+				<key>label</key>
+				<string>Remove deprecated warnings</string>
+				<key>key</key>
+				<string>hideWarnings</string>
+				<key>PostNotification</key>
+				<string>tk.oceantweak.oceanprefs.prefschanged</string>
+				<key>defaults</key>
+				<string>tk.oceantweak.oceanprefs</string>
+				<key>default</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>cell</key>
+				<string>PSSwitchCell</string>
+				<key>label</key>
+				<string>Fix adding multiple repos</string>
+				<key>key</key>
+				<string>multiRepos</string>
+				<key>PostNotification</key>
+				<string>tk.oceantweak.oceanprefs.prefschanged</string>
+				<key>defaults</key>
+				<string>tk.oceantweak.oceanprefs</string>
+				<key>default</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>cell</key>
+				<string>PSSwitchCell</string>
+				<key>label</key>
+				<string>Add support for more repos</string>
+				<key>key</key>
+				<string>repoSupport</string>
+				<key>PostNotification</key>
+				<string>tk.oceantweak.oceanprefs.prefschanged</string>
+				<key>defaults</key>
+				<string>tk.oceantweak.oceanprefs</string>
+				<key>default</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>cell</key>
+				<string>PSSwitchCell</string>
+				<key>label</key>
+				<string>Add export tweaks button</string>
+				<key>key</key>
+				<string>exportBtn</string>
+				<key>PostNotification</key>
+				<string>tk.oceantweak.oceanprefs.prefschanged</string>
+				<key>defaults</key>
+				<string>tk.oceantweak.oceanprefs</string>
+				<key>default</key>
+				<true/>
 			</dict>
 
 			<dict>
@@ -205,7 +266,7 @@
 				<key>pushToPlist</key>
 				<string>Support</string>
 				<key>label</key>
-				<string>Support &amp; Creator</string>
+				<string>Support &amp; Creators</string>
 			</dict>
 			<dict>
 				<key>cell</key>
@@ -215,7 +276,7 @@
 				<key>isController</key>
 				<true/>
 				<key>PostNotification</key>
-				<string>com.midnightchips.oceanprefs.prefschanged</string>
+				<string>tk.oceantweak.oceanprefs.prefschanged</string>
 				<key>label</key>
 				<string>Backup &amp; Restore</string>
 			</dict>
@@ -231,7 +292,7 @@
 				<key>changes</key>
 				<array>
 					<dict>
-						<key>0.0.1</key>
+						<key>0.1.0</key>
 						<array>
 							<string>initial release</string>
 						</array>
