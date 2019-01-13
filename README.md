@@ -22,3 +22,20 @@ Ocean takes an amazing package manager and adds functionality that isn't availab
 <p align='center'>
  <a href=""><img width="300px" height="243px" src="https://oceantweak.tk/repo/depictions/Ocean/assets/app/export.jpg"></a>
 </p>
+
+### Fix Adding Multiple Repos At Once, Add Unsupported Repositories, and Get Rid Of That Pesky Deprecated Webview Banner!
+
+# How To Install Ocean
+
+
+### Through Cydia
+
+To install Ocean add our repository to Cydia or Sileo by going to Sources > Edit > Add and typing `https://oceantweak.tk/repo`. Once you add our repository you will be able to search in either package manager and download it! **It is reccommended to install Ocean through Cydia since it tweaks Sileo.**
+
+After installing and respringing make sure to close the Sileo application if it was running in the background. Go to your Settings app and check out some of the configuration settings there. Like any other tweak you'll be able to change your preferences from Settings. Close Sileo after saving settings to ensure things are working (*functionality to close from the Settings pane coming in future builds*).
+
+### Building From Source w/ Theos
+
+To build Ocean from source you will need libCSPreferences and libCSColorPicker libraries to compile. You can get these at CreatureSurvive's repository.
+
+Once you have required libraries clone this repository and run `make package`. This will compile the deb as long as you have your Theos working correctly. If you'd like to install directly to the device be sure to have a correctly configured shell profile with your `THEOS_DEVICE_IP` and `THEOS_DEVICE_PORT` set accordingly. You can then run `make package install` and it will install directly to your device with SSH.
