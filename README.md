@@ -12,5 +12,5 @@ Ocean takes an amazing package manager and adds functionality that isn't availab
 
 ### Customize the color scheme of your application.
 <p align='center'>
- <a href=""><img width="182px" height="647.5px" src="https://i.imgur.com/WoIIPbg.png"></a>
+ <a href=""><img width="182px" height="323.75px" src="https://i.imgur.com/WoIIPbg.png"></a>
 </p>
