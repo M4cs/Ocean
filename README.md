@@ -43,7 +43,7 @@ To install Ocean add our repository to Cydia or Sileo by going to Sources > Edit
 
 After installing and respringing make sure to close the Sileo application if it was running in the background. Go to your Settings app and check out some of the configuration settings there. Like any other tweak you'll be able to change your preferences from Settings. Close Sileo after saving settings to ensure things are working (*functionality to close from the Settings pane coming in future builds*).
 
-###Building From Source w/ Theos
+## Building From Source w/ Theos
 
 To build Ocean from source you will need libCSPreferences and libCSColorPicker libraries to compile. You can get these at CreatureSurvive's repository.
 
