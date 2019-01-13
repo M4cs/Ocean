@@ -141,6 +141,14 @@
 	%orig;
 }
 %end
+%hook UIButtonLabel
+-(void)setTextColor:(id)arg1 {
+	if ([[(UILabel*)self _viewControllerForAncestor] isKindOfClass:%c(InstallViewController)] && [((UILabel*)self).superview isMemberOfClass:[UIButton class]]) {
+		arg1 = [prefs colorForKey:@"tintColor"];
+	}
+	%orig;
+}
+%end
 %end
 
 %ctor {
