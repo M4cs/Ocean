@@ -13,7 +13,7 @@
 	return %orig;
 }
 -(void)setTintColor:(UIColor *)arg1{
-	if([self.superview isKindOfClass:NSClassFromString(@"ANEMWebImageButton")] || [self.superview.superview isKindOfClass:%c(PackageListHeader)]){
+	if([self.superview isKindOfClass:NSClassFromString(@"ANEMWebImageButton")] || [self.superview.superview isKindOfClass:%c(PackageListHeader)] || [self.superview isKindOfClass:%c(DepictionTableButtonView)]){
 		arg1 = [prefs colorForKey:@"tintColor"];
 		%orig(arg1);
 	}
@@ -97,24 +97,15 @@
 @interface DepictionTabControl : UIView
 @property(nonatomic) _Bool highlighted;
 @end
-%hook DepictionTabControl
-- (void)layoutSubviews {
-	%orig;
-	if (self.highlighted){
-		if ([self valueForKey:@"_tabLabel"]) {
-			UILabel *tabLabel = (UILabel *)[self valueForKey:@"_tabLabel"];
-        	tabLabel.textColor = [prefs colorForKey:@"tintColor"];
-    	}
+%hook UILabel
+-(void)setTextColor:(id)arg1 {
+	if ([self.superview isMemberOfClass:%c(DepictionTabControl)]) {
+		DepictionTabControl* tabControl = (DepictionTabControl*)self.superview;
+		if (tabControl.highlighted) {
+			arg1 = [prefs colorForKey:@"tintColor"];
+		}
 	}
-}
-%end
-%hook DepictionTabView
--(void)layoutSubviews {
 	%orig;
-	if ([self valueForKey:@"_tabViewHighlight"]) {
-		UIView *tabViewHighlight = (UIView *)[self valueForKey:@"_tabViewHighlight"];
-        tabViewHighlight.backgroundColor = [prefs colorForKey:@"tintColor"];
-    }
 }
 %end
 %hook UITabBarButton //This sets the color for any badge that belongs to a TabBarIcon.
@@ -134,6 +125,20 @@
 -(void)layoutSubviews {
     %orig;
     self.tintColor = [prefs colorForKey:@"tintColor"];
+}
+%end
+%hook UIView
+-(void)setBackgroundColor:(id)arg1 {
+	if ([self.superview.superview isKindOfClass:%c(DepictionTabView)]) {
+		id tabView = self.superview.superview;
+		if ([tabView valueForKey:@"_tabViewHighlight"]) {
+			UIView *tabViewHighlight = (UIView *)[tabView valueForKey:@"_tabViewHighlight"];
+			if (tabViewHighlight == self) {
+				arg1 = [prefs colorForKey:@"tintColor"];
+			}
+		}
+	}
+	%orig;
 }
 %end
 %end
