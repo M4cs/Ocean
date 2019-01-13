@@ -30,7 +30,7 @@ Ocean takes an amazing package manager and adds functionality that isn't availab
 
 ### Through Cydia
 
-To install Ocean add our repository to Cydia or Sileo by going to Sources > Edit > Add and typing `https://oceantweak.tk/repo`. Once you add our repository you will be able to search in either package manager and download it! **It is reccommended to install Ocean through Cydia since it tweaks Sileo.**
+To install Ocean add our repository to Cydia or Sileo by going to Sources > Edit > Add and typing `https://oceantweak.tk/repo`. Once you add our repository you will be able to search in either package manager and download it!
 
 After installing and respringing make sure to close the Sileo application if it was running in the background. Go to your Settings app and check out some of the configuration settings there. Like any other tweak you'll be able to change your preferences from Settings. Close Sileo after saving settings to ensure things are working (*functionality to close from the Settings pane coming in future builds*).
 
