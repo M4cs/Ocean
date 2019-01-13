@@ -6,6 +6,18 @@
 		<array>
 			<dict>
 				<key>cell</key>
+				<string>PSGroupCell</string>
+				<key>headerCellClass</key>
+				<string>OCPPrefBannerCell</string>
+			</dict>
+			<dict>
+				<key>cell</key>
+				<string>PSGroupCell</string>
+				<key>footerText</key>
+				<string>Dark Mode does not effect web depictions</string>
+			</dict>
+			<dict>
+				<key>cell</key>
 				<string>PSSwitchCell</string>
 				<key>label</key>
 				<string>Darkmode Enabled</string>

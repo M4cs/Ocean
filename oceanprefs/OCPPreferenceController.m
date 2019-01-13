@@ -1,6 +1,8 @@
 #include "OCPPreferenceController.h"
 #import <spawn.h>
 
+#define screenWidth [[UIScreen mainScreen] bounds].size.width
+
 @implementation OCPPreferenceController
 -(void)viewDidLoad {
     [super viewDidLoad];
@@ -24,5 +26,33 @@
     [alert addAction:cancel];
     [alert addAction:ok];
     [self presentViewController:alert animated:YES completion:nil];
+}
+@end
+
+//banner
+@implementation OCPPrefBannerCell
+-(id)initWithSpecifier:(PSSpecifier *)specifier
+{
+	self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+	if (self)
+	{
+        UIImage* img = [UIImage imageNamed:@"Banner" inBundle:[NSBundle bundleForClass:[self class]]];
+		imgView = [[UIImageView alloc] init];
+        imgView.frame = CGRectMake(0, -self.frame.origin.y, screenWidth, screenWidth * (img.size.height / img.size.width));
+        imgView.image = img;
+        imgView.backgroundColor = [UIColor redColor];
+        [self addSubview:imgView];
+	}
+	return self;
+}
+
+-(void)didMoveToWindow {
+    [super didMoveToWindow];
+    imgView.frame = CGRectMake(0, -self.frame.origin.y, screenWidth, imgView.frame.size.height);
+}
+
+-(CGFloat)preferredHeightForWidth:(CGFloat)arg1
+{
+    return imgView.frame.size.height - 35;
 }
 @end
