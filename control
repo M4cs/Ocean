@@ -1,7 +1,7 @@
 Package: tk.oceantweak.ocean
 Name: Ocean
 Depends: mobilesubstrate, preferenceloader, com.creaturecoding.libcspreferences, com.creaturesurvive.libcscolorpicker
-Version: 0.1.1
+Version: 0.1.1-1
 Architecture: iphoneos-arm
 Description: Supercharge Sileo with Ocean
 Maintainer: webmaster@localhost.com
