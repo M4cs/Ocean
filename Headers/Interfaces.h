@@ -30,7 +30,19 @@
 @interface FeaturedHeaderView : UIView
 @end
 
+@interface Package : NSObject {
+    NSString *_name;
+    NSString *_version;
+}
+-(id)sourceRepo;
+@end
+
+@interface Repo : NSObject
+@property (nonatomic, retain) NSString* repoURL;
+@end
+
 @interface PackageViewController : UIViewController
+@property (nonatomic, retain) Package* package;
 @end
 
 @interface FeaturedViewController : UIViewController
@@ -84,11 +96,6 @@
 }
 //-(void)sendEmail;
 -(void)copyPackages;
-@end
-@interface Package{
-    NSString *_name;
-    NSString *_version;
-}
 @end
 
 @interface UINavigationBar (iOS11)
