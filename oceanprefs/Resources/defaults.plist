@@ -28,5 +28,7 @@
 		<true/>
 		<key>exportBtn</key>
 		<true/>
+		<key>allJSEnabled</key>
+		<false/>
 	</dict>
 </plist>
