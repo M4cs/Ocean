@@ -233,6 +233,8 @@ UIColor* lighterColorForColor(UIColor* c, CGFloat value)
         if (((UIViewController*)[self _viewControllerForAncestor]).view == self.superview.superview) {
             self.textColor = [prefs colorForKey:@"textColor"];
         }
+    } else if ([[self _viewControllerForAncestor] isKindOfClass:%c(DownloadsTableViewController)] && [self.superview.superview isKindOfClass:%c(EditableTableView)]) {
+        self.textColor = [prefs colorForKey:@"textColor"];
     }
 }
 %end
@@ -319,6 +321,8 @@ UIColor* lighterColorForColor(UIColor* c, CGFloat value)
         if (((UIViewController*)[self _viewControllerForAncestor]).view == self) {
             self.backgroundColor = [prefs colorForKey:@"backgroundColor"];
         }
+    } else if ([self isMemberOfClass:[UIView class]] && [[self _viewControllerForAncestor] isKindOfClass:%c(DownloadsTableViewController)]) {
+        self.backgroundColor = [prefs colorForKey:@"backgroundColor"];
     }
 }
 %end
@@ -342,6 +346,22 @@ UIColor* lighterColorForColor(UIColor* c, CGFloat value)
                 break;
             }
         }
+    }
+}
+%end
+%hook InstallViewController
+-(void)viewDidLoad {
+    %orig;
+    ((UIViewController*)self).view.backgroundColor = [prefs colorForKey:@"backgroundColor"];
+    UIView* teleView = [(NSObject*)self valueForKey:@"_teleprompterView"];
+    teleView.backgroundColor = [prefs colorForKey:@"backgroundColor"];
+}
+
+-(void)pushText:(id)arg1 {
+    %orig;
+    NSArray<UILabel*>* labels = [(NSObject*)self valueForKey:@"_teleprompterLabels"];
+    for (UILabel* lbl in labels) {
+        lbl.textColor = [prefs colorForKey:@"textColor"];
     }
 }
 %end
