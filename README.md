@@ -28,7 +28,11 @@ Ocean takes an amazing package manager and adds functionality that isn't availab
  <a href=""><img width="300px" height="243px" src="https://oceantweak.tk/repo/depictions/Ocean/assets/app/export.jpg"></a>
 </p>
 
-#### Fix Adding Multiple Repos At Once, Add Unsupported Repositories, and Get Rid Of That Pesky Deprecated Webview Banner!
+## Plus
+- Fix Adding Multiple Repos At Once
+- Add Unsupported Repositories*
+- Get Rid Of That Pesky Deprecated Webview Banner
+and more to come!
 
 # How To Install Ocean
 
