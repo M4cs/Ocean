@@ -1,6 +1,6 @@
 # Ocean | Supercharge Sileo
 ![alt text](https://img.shields.io/badge/iOS-11.0--11.4b3-blue.svg)
-![alt text](https://img.shields.io/badge/Version-0.0.2-yellow.svg)
+![alt text](https://img.shields.io/badge/Version-0.1.0-yellow.svg)
 ![alt text](https://img.shields.io/badge/Build-Beta-brightgreen.svg)
 #### Created by [TeamOcean](https://twitter.com/OceanForSileo) ([@maxbridgland](https://twitter.com/maxbridgland), [simalary_ch](https://twitter.com/simalary_ch), [@midnightchip](https://twitter.com/MidnightChip), [@Muirey03](https://twitter.com/Muirey03), [@EasyZ](/https://twitter.com/_Easy_Z_))
 <p align='center'>
