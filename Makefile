@@ -4,7 +4,7 @@ include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = Ocean
 Ocean_FILES = $(wildcard *.xm *.m)
-Ocean_FRAMEWORKS = UIKit MessageUI
+Ocean_FRAMEWORKS = UIKit MessageUI WebKit
 Ocean_LDFLAGS += -lCSColorPicker -lCSPreferencesProvider
 Ocean_CFLAGS = -fobjc-arc
 
