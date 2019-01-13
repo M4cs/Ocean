@@ -20,5 +20,5 @@ Ocean takes an amazing package manager and adds functionality that isn't availab
 
 ### Export Your Tweaks Easier Than Ever
 <p align='center'>
- <a href=""><img src="https://oceantweak.tk/repo/depictions/Ocean/assets/app/export.jpg"></a>
+ <a href=""><img width="300px" height="243px" src="https://oceantweak.tk/repo/depictions/Ocean/assets/app/export.jpg"></a>
 </p>
