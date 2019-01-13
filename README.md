@@ -4,6 +4,8 @@
  <a href=""><img width="300px" height="398px" src="https://oceantweak.tk/assets/app/iphone_cover_dark.png" "Preview"></a>
 </p>
 
+*This Source Code may be more updated than the current stable release*
+
 ## What is Ocean?
 
 Ocean is an attempt to bring features we felt were missing from Sileo. Some features in Ocean may make it into Sileo eventually so if you like any features we add make sure to send feedback to the Sileo team as well. 
@@ -39,3 +41,11 @@ After installing and respringing make sure to close the Sileo application if it 
 To build Ocean from source you will need libCSPreferences and libCSColorPicker libraries to compile. You can get these at CreatureSurvive's repository.
 
 Once you have required libraries clone this repository and run `make package`. This will compile the deb as long as you have your Theos working correctly. If you'd like to install directly to the device be sure to have a correctly configured shell profile with your `THEOS_DEVICE_IP` and `THEOS_DEVICE_PORT` set accordingly. You can then run `make package install` and it will install directly to your device with SSH.
+
+# Contributing
+
+If you would like to add features to Ocean feel free to do so by making a fork and creating a Pull Request. If they are good features we will accept them and add them into the next version. 
+
+# Donating
+
+At the moment we have no way of allowing you to donate equally to all of us. If you would like to donate contact one of the developers of the team and we will all split it. Anything is appreciated we could all use some coffee ☕ 🍩
