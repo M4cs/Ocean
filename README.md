@@ -33,7 +33,7 @@ Ocean takes an amazing package manager and adds functionality that isn't availab
 # How To Install Ocean
 
 
-### Through Cydia
+### Through Cydia or Sileo
 
 To install Ocean add our repository to Cydia or Sileo by going to Sources > Edit > Add and typing `https://oceantweak.tk/repo`. Once you add our repository you will be able to search in either package manager and download it!
 
