@@ -10,10 +10,15 @@ Ocean is an attempt to bring features we felt were missing from Sileo. **It is n
 
 Ocean takes an amazing package manager and adds functionality that isn't available with any other tweaks. With Ocean you have the ability to:
 
-### Customize the color scheme of your application.
+### Customize The Color Scheme Of Sileo
 <p align='center'>
  <a href=""><img width="182px" height="323.75px" src="https://i.imgur.com/WoIIPbg.png"></a>
  <a href=""><img width="182px" height="323.75px" src="https://i.imgur.com/5EZdVQ9.png"></a>
  <a href=""><img width="182px" height="323.75px" src="https://i.imgur.com/KkvZj3O.png"></a>
  <a href=""><img width="182px" height="323.75px" src="https://i.imgur.com/7bPrWEL.png"></a>
+</p>
+
+### Export Your Tweaks Easier Than Ever
+<p align='center'>
+ <a href=""><img src="https://oceantweak.tk/repo/depictions/Ocean/assets/app/export.jpg"></a>
 </p>
