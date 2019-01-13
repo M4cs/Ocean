@@ -45,6 +45,10 @@ To build Ocean from source you will need libCSPreferences and libCSColorPicker l
 
 Once you have required libraries clone this repository and run `make package`. This will compile the deb as long as you have your Theos working correctly. If you'd like to install directly to the device be sure to have a correctly configured shell profile with your `THEOS_DEVICE_IP` and `THEOS_DEVICE_PORT` set accordingly. You can then run `make package install` and it will install directly to your device with SSH.
 
+# Support
+
+Either contact us through Twitter [here](https://twitter.com/OceanForSileo) or open up a GH Issue. Any Issues on the GitHub will most likely be dealt with first and focused on.
+
 # Contributing
 
 If you would like to add features to Ocean feel free to do so by making a fork and creating a Pull Request. If they are good features we will accept them and add them into the next version. 
