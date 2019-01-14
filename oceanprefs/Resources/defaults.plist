@@ -28,5 +28,7 @@
 		<true/>
 		<key>exportBtn</key>
 		<true/>
+		<key>recentsEnabled</key>
+		<true/>
 	</dict>
 </plist>
