@@ -2,7 +2,21 @@
 
 static UISegmentedControl* control;
 
+%group Recents
 %hook UISegmentedControl
+-(void)didMoveToWindow
+{
+    %orig;
+    control = self;
+    if (self.selectedSegmentIndex == 3)
+    {
+        PackageListViewController* vc = (PackageListViewController*)[self _viewControllerForAncestor];
+        //reload collectionview:
+        UICollectionView* collectionView = MSHookIvar<UICollectionView*>(vc, "_collectionView");
+        [collectionView reloadData];
+    }
+}
+
 -(void)insertSegmentWithTitle:(id)arg1 atIndex:(unsigned long long)arg2 animated:(BOOL)arg3
 {
     %orig;
@@ -10,7 +24,6 @@ static UISegmentedControl* control;
     {
         //add segment
         [self insertSegmentWithTitle:@"Recents" atIndex:3 animated:NO];
-        control = self;
     }
 }
 %end
@@ -70,3 +83,10 @@ static void sortPackages(NSArray* __strong& packages)
     %orig;
 }
 %end
+%end
+
+%ctor {
+	if ([prefs boolForKey:@"recentsEnabled"]) {
+        %init(Recents);
+    }
+}
