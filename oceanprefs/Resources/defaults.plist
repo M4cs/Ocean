@@ -30,5 +30,7 @@
 		<true/>
 		<key>recentsEnabled</key>
 		<true/>
+		<key>sortRepos</key>
+		<true/>
 	</dict>
 </plist>
