@@ -236,10 +236,8 @@ UIColor* lighterColorForColor(UIColor* c, CGFloat value)
     } else if ([[self _viewControllerForAncestor] isKindOfClass:%c(DownloadsTableViewController)] && [self.superview.superview isKindOfClass:%c(EditableTableView)]) {
         self.textColor = [prefs colorForKey:@"textColor"];
     }
-    self.textColor = [prefs colorForKey:@"textColor"];
 }
 %end
-
 %hook _UIButtonBarStackView
 -(void)layoutSubviews{
     %orig;
