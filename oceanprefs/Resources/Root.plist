@@ -34,6 +34,23 @@
 			</dict>
 
 			<dict>
+				<key>cell</key>
+				<string>PSSwitchCell</string>
+				<key>label</key>
+				<string>Google Translate</string>
+				<key>key</key>
+				<string>googleTranslate</string>
+				<key>isGroupToggle</key>
+				<false/>
+				<key>PostNotification</key>
+				<string>tk.oceantweak.oceanprefs.prefschanged</string>
+				<key>defaults</key>
+				<string>tk.oceantweak.oceanprefs</string>
+				<key>default</key>
+				<false/>
+			</dict>
+
+			<dict>
 				<key>PostNotification</key>
 				<string>tk.oceantweak.oceanprefs.prefschanged</string>
 				<key>cell</key>
