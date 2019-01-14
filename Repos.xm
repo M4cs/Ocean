@@ -23,7 +23,6 @@
 
         UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"Add Source" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
             [self handleSourceAddWithURLs:URLs];
-            [self refreshSources:nil];
             [self setEditing:NO animated:YES];
         }];
         UIAlertAction *notUsed = [UIAlertAction actionWithTitle:@"Enter Manually" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
