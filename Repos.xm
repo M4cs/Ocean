@@ -22,7 +22,7 @@
         autoPasteboardSourceController.message = [NSString stringWithFormat: @"Add the following URL found on your pasteboard: \r%@", [[URLs valueForKey:@"description"] componentsJoinedByString:@"\r"]];
 
         UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"Add Source" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-            [manager addReposWithURLs:URLs];
+            [self handleSourceAddWithURLs:URLs];
             [self refreshSources:nil];
             [self setEditing:NO animated:YES];
         }];
@@ -34,9 +34,6 @@
         [autoPasteboardSourceController addAction:notUsed];
         [autoPasteboardSourceController addAction:confirm];
         [self presentViewController:autoPasteboardSourceController animated:YES completion:nil];
-        return;
-
-
     }else{
         %orig;
     }
