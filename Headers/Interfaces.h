@@ -34,6 +34,7 @@
     NSString *_name;
     NSString *_version;
 }
+@property (nonatomic, retain) NSString* package;
 -(id)sourceRepo;
 @end
 
