@@ -21,25 +21,20 @@
     else if ([[arg1 absoluteString] rangeOfString:@"apt.thebigboss.org/repofiles/cydia"].location != NSNotFound) {
         arg1 = [NSURL URLWithString:@"http://files11.thebigboss.org/repofiles/cydia/dists/stable/main/binary-iphoneos-arm/404-FOR-SURE"]; //redirect to something that'll return 404. If I leave it as is it might get stuck loading
     }
-    else if ([[arg1 absoluteString] isEqualToString:@"http://apt.bingner.com/Release.gpg"]) {
-        arg1 = [NSURL URLWithString:@"http://apt.bingner.com/dists/ios/1443.00/main/binary-iphoneos-arm/Release.gpg"];
-    }
-    else if ([[arg1 absoluteString] isEqualToString:@"http://apt.bingner.com/Release"]) {
-        arg1 = [NSURL URLWithString:@"http://apt.bingner.com/dists/ios/1443.00/main/binary-iphoneos-arm/Release"];
-    }
-    else if ([[arg1 absoluteString] isEqualToString:@"http://apt.bingner.com/CydiaIcon.png"]) {
-        arg1 = [NSURL URLWithString:@"http://apt.bingner.com/CydiaIcon.png"];
-    }
-    else if ([[arg1 absoluteString] isEqualToString:@"http://apt.bingner.com/Packages.bz2"]) {
-        arg1 = [NSURL URLWithString:@"http://apt.bingner.com/dists/ios/1443.00/main/binary-iphoneos-arm/Packages.bz2"]; //redirect to Packages.bz2 file
-    }
-    else if ([[arg1 absoluteString] isEqualToString:@"http://apt.bingner.com/Packages"]) {
-        arg1 = [NSURL URLWithString:@"http://apt.bingner.com/dists/ios/1443.00/main/binary-iphoneos-arm/Packages"]; //redirect to Packages.bz2 file
-    }
     else if ([[arg1 absoluteString] rangeOfString:@"apt.bingner.com/"].location != NSNotFound) {
         arg1 = [NSURL URLWithString:@"http://files11.thebigboss.org/repofiles/cydia/dists/stable/main/binary-iphoneos-arm/404-FOR-SURE"]; //redirect to something that'll return 404. If I leave it as is it might get stuck loading
     }
     return %orig(arg1, arg2, arg3, arg4);
+}
+%end
+//Bingner's repo actually supports sileo if you send the right variables
+%hook URLManager
++(NSMutableURLRequest*) urlRequestWithHeaders:(NSURL *)url includingDeviceInfo:(bool)info {
+    NSMutableURLRequest *req = %orig;
+    if ([req valueForHTTPHeaderField:@"X-Firmware"] == nil){
+        [req setValue:[[UIDevice currentDevice] systemVersion] forHTTPHeaderField:@"X-Firmware"];
+    }
+    return req;
 }
 %end
 %end
