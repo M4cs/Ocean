@@ -4,7 +4,7 @@
 -(void)didMoveToWindow
 {
     %orig;
-    if ([self isMemberOfClass:[UIScrollView class]] && [[self _viewControllerForAncestor] isKindOfClass:%c(PackageViewController)])
+    if ([self isMemberOfClass:[UIScrollView class]] && [[self _viewControllerForAncestor] isKindOfClass:%c(PackageViewController)] && ![self.superview isKindOfClass:%c(DepictionScreenshotsView)])
     {
         self.alwaysBounceVertical = YES;
     }
