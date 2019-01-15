@@ -10,16 +10,12 @@ static void sortRepos(NSMutableArray<Repo*>* __strong& repos)
 }
 
 %group SortRepos
-%hook RepoManager
--(void)updateWithCompletion:(void (^)(id))arg1 forceUpdate:(BOOL)arg2 forceReload:(BOOL)arg3
+%hook Repo
+-(void)setRepoName:(id)arg2
 {
-    void (^oldArg1)(id) = arg1;
-    arg1 = ^(id i){
-        oldArg1(nil);
-        NSMutableArray<Repo*>* __strong& repos = MSHookIvar<NSMutableArray<Repo*>*>(self, "_repoList");
-        sortRepos(repos);
-    };
     %orig;
+    NSMutableArray<Repo*>* __strong& repos = MSHookIvar<NSMutableArray<Repo*>*>([%c(RepoManager) sharedInstance], "_repoList");
+    sortRepos(repos);
 }
 %end
 %end
