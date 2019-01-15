@@ -264,20 +264,6 @@
 				<key>cell</key>
 				<string>PSSwitchCell</string>
 				<key>label</key>
-				<string>Add "Recents" tab</string>
-				<key>key</key>
-				<string>recentsEnabled</string>
-				<key>PostNotification</key>
-				<string>tk.oceantweak.oceanprefs.prefschanged</string>
-				<key>defaults</key>
-				<string>tk.oceantweak.oceanprefs</string>
-				<key>default</key>
-				<true/>
-			</dict>
-			<dict>
-				<key>cell</key>
-				<string>PSSwitchCell</string>
-				<key>label</key>
 				<string>Sort repos alphabetically</string>
 				<key>key</key>
 				<string>sortRepos</string>
