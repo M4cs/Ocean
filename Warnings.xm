@@ -1,20 +1,61 @@
 #import <Headers/Interfaces.h>
+@import WebKit;
 
 CGFloat warningHeight = 0;
 
 %group Warnings
-%hook PackageViewController
--(void)viewDidLayoutSubviews {
+%hook UIView
+-(void)layoutSubviews
+{
     %orig;
-    UIView* warningView = [(NSObject*)self valueForKey:@"_deprecatedWarningView"];
-    warningHeight = warningView.frame.size.height;
-    [warningView removeFromSuperview];
+    if ([self isMemberOfClass:[UIView class]])
+    {
+        if ([[self _viewControllerForAncestor] isKindOfClass:%c(PackageViewController)])
+        {
+            if (self.subviews.count == 1)
+            {
+                if ([self.subviews[0] isMemberOfClass:[UILabel class]])
+                {
+                    if (self.frame.size.width == ((UIViewController*)[self _viewControllerForAncestor]).view.frame.size.width)
+                    {
+                        if ([self.superview.superview isMemberOfClass:[UIScrollView class]])
+                        {
+                            //right that should be enough fucking checks
+                            //pretty sure we're the deprecated warning
+                            warningHeight = self.frame.size.height;
+                            [self removeFromSuperview];
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+%end
 
-    UIView* webView = [(NSObject*)self valueForKey:@"_depictionWebView"];
-    webView.frame = CGRectMake(0, webView.frame.origin.y - warningHeight, webView.frame.size.width, webView.frame.size.height);
+%hook WKWebView
+-(void)setFrame:(CGRect)arg1
+{
+    if ([[self _viewControllerForAncestor] isKindOfClass:%c(PackageViewController)])
+    {
+        arg1 = CGRectMake(0, arg1.origin.y - warningHeight, arg1.size.width, arg1.size.height);
+    }
+    %orig;
+}
+%end
 
-    UIView* footerView = [(NSObject*)self valueForKey:@"_depictionFooterView"];
-    footerView.frame = CGRectMake(0, footerView.frame.origin.y - warningHeight, footerView.frame.size.width, footerView.frame.size.height);
+%hook DepictionStackView
+-(void)setFrame:(CGRect)arg1
+{
+    if ([[(UIView*)self _viewControllerForAncestor] isKindOfClass:%c(PackageViewController)])
+    {
+        PackageViewController* vc = (PackageViewController*)[(UIView*)self _viewControllerForAncestor];
+        if ([vc valueForKey:@"_depictionFooterView"] == self)
+        {
+            arg1 = CGRectMake(0, arg1.origin.y - warningHeight, arg1.size.width, arg1.size.height);
+        }
+    }
+    %orig;
 }
 %end
 
