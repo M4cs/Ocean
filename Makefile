@@ -1,4 +1,6 @@
-ARCHS = arm64
+ARCHS = armv7 arm64
+GO_EASY_ON_ME = 1
+DEBUG = NO
 
 include $(THEOS)/makefiles/common.mk
 
